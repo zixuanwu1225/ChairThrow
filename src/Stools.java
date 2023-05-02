@@ -5,5 +5,7 @@ public class Stools extends Chair{
     }
     public boolean isDoubleHit(){
         //return random chance for double hit
+        int DBHit = (int)(Math.random()*5)+1;
+        return DBHit == 1;
     }
 }

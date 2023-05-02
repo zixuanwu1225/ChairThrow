@@ -4,6 +4,8 @@ public class Benches extends Chair{
         super(toughness,legs,weight);
     }
     public boolean isStun(){
-        //return random idk like 2 percent chance for stun, actuallly no return like 20 perfcetn chance to stun
+        //return random IDK like 2 percent chance for stun, actually no return like 20 percent chance to stun
+        int stunChance = (int)(Math.random()*5)+1;
+        return stunChance == 1;
     }
 }

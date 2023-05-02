@@ -9,4 +9,23 @@ public class Chair {
         // (will be determined by type of chair + random weight)(make cool text like "this chair feels heavy")
     }
     //make file writer to make dev console on history of everything player did and be able to pull it up from gui.
+    //make a healing chair
+    public int getToughness() {
+        return toughness;
+    }
+    public void setToughness(int toughness) {
+        this.toughness = toughness;
+    }
+    public int getLegs() {
+        return legs;
+    }
+    public void setLegs(int legs) {
+        this.legs = legs;
+    }
+    public int getWeight() {
+        return weight;
+    }
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 }
