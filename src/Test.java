@@ -1,3 +1,6 @@
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 public class Test {
     //assign proper names for all variables
     OfficeChair o = new OfficeChair(3,4,7);
