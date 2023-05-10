@@ -27,6 +27,7 @@ public class Test {
             Benches b = new Benches(5,4,12);
             b.isStun();
         }
+        ChairGUI gui = new ChairGUI();
     }
 
     public Player1 getP1() {
