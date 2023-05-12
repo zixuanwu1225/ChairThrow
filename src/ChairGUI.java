@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -12,10 +13,16 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener {
     private JButton specialButton;
     private JSlider slider2;
     private JButton devConsoleButton;
+    private JPanel Gay;
+
     public ChairGUI(){
-        init();
+        setContentPane(Gay);
+        setTitle("Frame");
+        setSize(500,300);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
     }
-    private void init(){
+    public void init(){
 
     }
 

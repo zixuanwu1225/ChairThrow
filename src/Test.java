@@ -28,6 +28,7 @@ public class Test {
             b.isStun();
         }
         ChairGUI gui = new ChairGUI();
+        gui.setVisible(true);
     }
 
     public Player1 getP1() {
