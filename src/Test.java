@@ -6,7 +6,7 @@ public class Test {
     OfficeChair o = new OfficeChair(3,4,7);
     Benches b = new Benches(3,4,14);
     Stools s = new Stools(3,3,3);
-    WoodenChair w = new WoodenChair(3,4,9);
+    WheelChair w = new WheelChair(3,4,9);
     Chair c = new Chair(3,4,5);
     Player1 p1 = new Player1();
     Player2 p2 = new Player2();
@@ -15,17 +15,13 @@ public class Test {
         t.assignChair();
         Chair c = new Chair(3,4,5);
         if(t.getP1().getC()instanceof OfficeChair){
-            OfficeChair o = new OfficeChair(4,4,7);
-            o.grantBuff();
+
         } else if (t.getP1().getC()instanceof Stools) {
-            Stools s = new Stools(3,3,3);
-            s.isDoubleHit();
-        } else if (t.getP1().getC()instanceof WoodenChair) {
-            WoodenChair w = new WoodenChair(4,4,7);
-            w.grantDebuff();
+
+        } else if (t.getP1().getC()instanceof WheelChair) {
+
         } else if (t.getP1().getC()instanceof Benches) {
-            Benches b = new Benches(5,4,12);
-            b.isStun();
+
         }
         ChairGUI gui = new ChairGUI();
         gui.setVisible(true);
@@ -39,7 +35,7 @@ public class Test {
         return c;
     }
 
-    public WoodenChair getW() {
+    public WheelChair getW() {
         return w;
     }
 

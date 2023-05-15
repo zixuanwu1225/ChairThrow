@@ -1,12 +1,12 @@
 public class OfficeChair extends Chair{
     private String buff;
+    private int buffType = (int)(Math.random()*4)+1;
     public OfficeChair(int toughness,int legs,int weight){
         super(toughness,legs,weight);
     }
     //make return int instead so that can be compared and called as compared to a String type
     public String grantBuff(){
         //make math.random into 1-4 and for whatever number correlate to a buff type
-        int buffType = (int)(Math.random()*4)+1;
         if(buffType==1){
             return "Attack+";
         }
@@ -19,5 +19,9 @@ public class OfficeChair extends Chair{
         else{
             return "Immunity to next debuff";
         }
+    }
+
+    public int getBuffType() {
+        return buffType;
     }
 }
