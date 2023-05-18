@@ -34,6 +34,10 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
         setLocation(500,250);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         devConsoleButton.addActionListener(this);
+        benchesButton.addActionListener(this);
+        stoolsButton.addActionListener(this);
+        officeChairButton.addActionListener(this);
+        wheelchairButton.addActionListener(this);
         d = new DevConsole();
         d.setVisible(false);
         this.setVisible(true);
@@ -49,20 +53,22 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
             if(o.getBuffType()==1){
                 o.setToughness(5);
             }
+            d.devConsoleEntry(text);
         }
         else if(text.equals("Benches")){
-
+            d.devConsoleEntry(text);
         }
         else if(text.equals("Stools")){
-
+            d.devConsoleEntry(text);
         }
         else if(text.equals("Wheelchair")){
-
+            d.devConsoleEntry(text);
         }
         else if(text.equals("DevConsole")){
             //this.setVisible(true);
             d.setVisible(true);
             System.out.println("Pressed");
+
         }
     }
 
