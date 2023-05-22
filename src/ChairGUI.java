@@ -1,10 +1,15 @@
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.net.*;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ChairGUI extends JFrame implements ActionListener, ItemListener, ChangeListener {
     OfficeChair o = new OfficeChair(3,4,7);
@@ -73,6 +78,11 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
     }
 
     public void itemStateChanged(ItemEvent e) {
+
+    }
+    public void paint(Graphics g){
+        super.paint(g);
+        g.drawOval(250,250,100,100);
 
     }
 

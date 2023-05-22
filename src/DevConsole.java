@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 public class DevConsole extends JFrame {
     private JTextArea textArea1;
     private JPanel panel1;
+    private JLabel label;
     public DevConsole(){
         setContentPane(panel1);
         setTitle("DevConsole");
@@ -14,16 +15,16 @@ public class DevConsole extends JFrame {
     }
     public void devConsoleEntry(String text){
         if(text.equals("Office Chair")){
-            textArea1.setText(textArea1.getText()+"\n"+"clicked");
+            textArea1.setText(textArea1.getText()+"\n"+"Office Chair clicked");
         }
         else if(text.equals("Benches")){
-            textArea1.setText(textArea1.getText()+"\n"+"clicked");
+            textArea1.setText(textArea1.getText()+"\n"+"Bench clicked");
         }
         else if(text.equals("Stools")){
-            textArea1.setText(textArea1.getText()+"\n"+"clicked");
+            textArea1.setText(textArea1.getText()+"\n"+"Stools clicked");
         }
         else if(text.equals("Wheelchair")){
-            textArea1.setText(textArea1.getText()+"\n"+"clicked");
+            textArea1.setText(textArea1.getText()+"\n"+"Wheelchair clicked");
         }
         else if(text.equals("DevConsole")){
             textArea1.setText(textArea1.getText()+"\n"+"clicked");
