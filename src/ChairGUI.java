@@ -1,7 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.io.IOException;
 import java.net.*;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -26,6 +29,8 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
     private JButton devConsoleButton;
     private JPanel Fat;
     private JPanel Gay;
+    private JLabel label;
+    private Image image = null;
 
     private DevConsole d;
 
@@ -58,6 +63,7 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
             if(o.getBuffType()==1){
                 o.setToughness(5);
             }
+            repaint();
             d.devConsoleEntry(text);
         }
         else if(text.equals("Benches")){
@@ -82,8 +88,15 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
     }
     public void paint(Graphics g){
         super.paint(g);
-        g.drawOval(250,250,100,100);
-
+        try {
+            URL url = new URL("https://4.imimg.com/data4/XC/HA/MY-424912/imagefile-productimage-images-4498_productimage_ach-057-250x250.jpg");
+            image = ImageIO.read(url);
+            image = image.getScaledInstance(100,100,Image.SCALE_DEFAULT);
+            ImageObserver observer = null;
+            g.drawImage(image,250,250, observer);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void stateChanged(ChangeEvent e) {
