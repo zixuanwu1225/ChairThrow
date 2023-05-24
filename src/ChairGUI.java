@@ -3,7 +3,9 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
+import java.io.File;
 import java.io.IOException;
 import java.net.*;
 import java.awt.Image;
@@ -29,12 +31,21 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
     private JButton devConsoleButton;
     private JPanel Fat;
     private JPanel Gay;
+    private JLabel label2;
     private JLabel label;
-    private Image image = null;
+    private Images image = new Images();
+    private Graphics g;
 
     private DevConsole d;
 
     public ChairGUI(){
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("download.jpg"));
+            g = img.getGraphics();
+        } catch (IOException e) {
+        }
+        g.drawImage(img,0, 0, Gay);
         init();
     }
     public void init(){
@@ -63,16 +74,20 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
             if(o.getBuffType()==1){
                 o.setToughness(5);
             }
-            repaint();
+            setImage(text);
+
             d.devConsoleEntry(text);
         }
-        else if(text.equals("Benches")){
+        else if(text.equals("Benches")){ImageIcon imageIcon = image.getIcon(text);
+            setImage(text);
             d.devConsoleEntry(text);
         }
         else if(text.equals("Stools")){
+            setImage(text);
             d.devConsoleEntry(text);
         }
         else if(text.equals("Wheelchair")){
+            setImage(text);
             d.devConsoleEntry(text);
         }
         else if(text.equals("DevConsole")){
@@ -86,7 +101,7 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
     public void itemStateChanged(ItemEvent e) {
 
     }
-    public void paint(Graphics g){
+    /*public void paint(Graphics g){
         super.paint(g);
         try {
             URL url = new URL("https://4.imimg.com/data4/XC/HA/MY-424912/imagefile-productimage-images-4498_productimage_ach-057-250x250.jpg");
@@ -97,6 +112,14 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }*/
+    public void setImage(String text){
+        ImageIcon imageIcon = image.getIcon(text);
+        Image image = imageIcon.getImage(); // transform it
+        Image newimg = image.getScaledInstance(120, 150,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        imageIcon = new ImageIcon(newimg);
+        label2.setIcon(imageIcon);
+        label.setIcon(imageIcon);
     }
 
     public void stateChanged(ChangeEvent e) {
