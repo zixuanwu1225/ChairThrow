@@ -12,17 +12,6 @@ public class Test {
     Player2 p2 = new Player2();
     public static void main(String[] args) {
         Test t = new Test();
-        t.assignChair();
-        Chair c = new Chair(3,4,5);
-        if(t.getP1().getC()instanceof OfficeChair){
-
-        } else if (t.getP1().getC()instanceof Stools) {
-
-        } else if (t.getP1().getC()instanceof WheelChair) {
-
-        } else if (t.getP1().getC()instanceof Benches) {
-
-        }
         ChairGUI gui = new ChairGUI();
         gui.setVisible(true);
     }

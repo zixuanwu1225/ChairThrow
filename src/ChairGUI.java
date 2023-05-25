@@ -34,18 +34,16 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
     private JLabel label2;
     private JLabel label;
     private Images image = new Images();
+    private int x = label.getX();
+    private int y = label.getY();
+    private int x2 = label2.getX();
+    private int y2 = label2.getY();
+    public boolean move;
     private Graphics g;
 
     private DevConsole d;
 
     public ChairGUI(){
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File("download.jpg"));
-            g = img.getGraphics();
-        } catch (IOException e) {
-        }
-        g.drawImage(img,0, 0, Gay);
         init();
     }
     public void init(){
@@ -74,11 +72,11 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
             if(o.getBuffType()==1){
                 o.setToughness(5);
             }
+            move=true;
             setImage(text);
-
             d.devConsoleEntry(text);
         }
-        else if(text.equals("Benches")){ImageIcon imageIcon = image.getIcon(text);
+        else if(text.equals("Benches")){
             setImage(text);
             d.devConsoleEntry(text);
         }
@@ -91,7 +89,6 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
             d.devConsoleEntry(text);
         }
         else if(text.equals("DevConsole")){
-            //this.setVisible(true);
             d.setVisible(true);
             System.out.println("Pressed");
 
@@ -120,6 +117,17 @@ public class ChairGUI extends JFrame implements ActionListener, ItemListener, Ch
         imageIcon = new ImageIcon(newimg);
         label2.setIcon(imageIcon);
         label.setIcon(imageIcon);
+    }
+    public void moving(){
+        int x = label.getX();
+        int y = label.getY();
+        int x2 = label2.getX();
+        int y2 = label2.getY();
+        for(int i=0;i<20;i++){
+            label.setLocation(x-1,y);
+            label2.setLocation(x2+1,y2);
+        }
+        move=false;
     }
 
     public void stateChanged(ChangeEvent e) {
